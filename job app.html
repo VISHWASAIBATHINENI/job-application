@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>job application</title>
+    <link rel="stylesheet" href="job app.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="apply_box">
+            <h1>JOB APPLICATION</h1>
+            <form action="apply_form">
+                <div class="form_container">
+                    <div class="form_controls">
+                        <label for="First Name">First Name:</label>
+                        <input type="text" id="First Name" name="First Name" placeholder="Enter your First Name">
+                    </div>
+                    <div class="form_controls">
+                        <label for="Middel Name">Middel Name:</label>
+                        <input type="text" id="Middel Name" name="Middel Name" placeholder="Enter your Middel Name">
+                    </div>
+                    <div class="form_controls">
+                        <label for="Last Name">Last Name:</label>
+                        <input type="text" id="Last Name" name="Last Name" placeholder="Enter your Last Name">
+                    </div>
+                    <div class="form_controls">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your Email">
+                    </div>
+                    <div class="form_controls">
+                        <label for="Age">Age:</label>
+                        <input type="date">
+                    </div>
+                    <div class="form_controls">
+                        <label for="job role">job role:</label>
+                        <select name="Job role" id="Job role">
+                            <option value="">select job role</option>
+                            <option value="Full stack">Full stack</option>
+                            <option value="Front end">Front end</option>
+                            <option value="Back end">Back end</option>
+                            <option value="C language">c language</option>
+                        </select>
+                    </div>
+                    <div class="form_controls">
+                        <label for="Address">Address:</label>
+                        <textarea name="Address" id="Address" rows="5" cols="70"></textarea>
+                    </div>
+                    <div class="form_controls">
+                        <label for="city">City:</label>
+                        <input type="text" name="city" id="city" placeholder="Enter your city">
+                    </div>
+                    <div class="form_controls">
+                        <label for="Pin code">Pin code:</label>
+                        <input type="number" id="Pin code" name="Pin code">
+                    </div>
+                    <div class="form_controls">
+                        <label for="Start date">Start data:</label>
+                        <input type="date">
+                    </div>
+                    <div class="form_controls">
+                        <label for="Uplode your cv">Uplode your cv:</label>
+                        <input type="file" id="Uplode your cv" name="Uplode your cv">
+                    </div>
+                </div>
+            </form>
+            <div class="button">
+                <button>Apply Now</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            const button = document.querySelector("button");
+
+            button.addEventListener("click", function (event) {
+                event.preventDefault(); // prevent default form submission
+
+                // Get form values
+                const firstName = document.getElementById("First Name").value.trim();
+                const middleName = document.getElementById("Middel Name").value.trim();
+                const lastName = document.getElementById("Last Name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const age = document.querySelector('input[type="date"]').value;
+                const jobRole = document.getElementById("Job role").value;
+                const address = document.getElementById("Address").value.trim();
+                const city = document.getElementById("city").value.trim();
+                const pin = document.getElementById("Pin code").value.trim();
+                const startDate = document.querySelectorAll('input[type="date"]')[1].value;
+                const cv = document.getElementById("Uplode your cv").value;
+
+                // Basic validation
+                if (!firstName || !lastName || !email || !jobRole || !address || !city || !pin || !cv) {
+                    alert("⚠️ Please fill in all required fields!");
+                    return;
+                }
+
+                // Email validation
+                const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if (!email.match(emailPattern)) {
+                    alert("⚠️ Please enter a valid email address.");
+                    return;
+                }
+
+                // Pin code validation (6 digits)
+                if (!/^\d{6}$/.test(pin)) {
+                    alert("⚠️ Please enter a valid 6-digit pin code.");
+                    return;
+                }
+
+                // Success message
+                alert("✅ Application submitted successfully!\n\nThank you " + firstName + " " + lastName);
+
+                // Reset form
+                form.reset();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

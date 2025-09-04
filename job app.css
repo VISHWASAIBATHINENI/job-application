@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.apply_box {
+    max-width: 670px;
+    padding: 20px;
+    background-color: gray;
+    margin: 0 auto;
+    margin-top: 50px;
+    box-shadow: 2px 3px 5px rgb(108, 22, 206);
+}
+
+.form_container {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.form_controls {
+    display: flex;
+    flex-direction: column;
+}
+
+.apply_box label {
+    font-size: 20px;
+}
+
+.apply_box input,
+select,
+textarea {
+    padding: 6px 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+input:focus {
+    outline-color: red;
+}
+
+button {
+    margin-top: 15px;
+    border-color: 2px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: brown;
+}
